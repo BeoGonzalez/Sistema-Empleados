@@ -1,2 +1,2 @@
-# Sistema de gestión restaurante
+# Sistema Empleados
 Este es un proyecto de gestión de empleados para restaurantes

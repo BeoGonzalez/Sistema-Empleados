@@ -1,17 +1,3 @@
-body {
-    background-color: #005066;
-}
-
-.titulo {
-    color: white;
-    text-align: center;
-    font: bold;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200px;
-    font-style: normal;
-}
-
 .menu {
     background-color: white;
     color: black;

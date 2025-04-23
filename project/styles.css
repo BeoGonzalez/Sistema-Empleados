@@ -28,3 +28,90 @@ body {
     margin-left: 200px;
     margin-right: 200px;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #005b6b;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    background-color: #005b6b;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: block;
+  }
+
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #005b6b;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #004655;
+  }
+
+  .register-link {
+    margin-top: 15px;
+  }
+
+  .register-link a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #005b6b;
+  }
+
+  footer {
+    background-color: #005b6b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+  }

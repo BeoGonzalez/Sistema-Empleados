@@ -1,3 +1,8 @@
 body {
     background-color: #005b6b;
 }
+
+nav {
+    color: white;
+    justify-content: right;
+}

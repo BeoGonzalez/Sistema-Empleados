@@ -12,9 +12,11 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 30px;
-  background-color: #065f73;
+  background-color: #025763; /* azul oscuro como en la imagen */
   color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -23,10 +25,11 @@ header {
 }
 
 nav a {
-  margin-left: 15px;
+  margin-left: 20px;
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 16px;
 }
 
 main {
@@ -41,7 +44,7 @@ main {
   border-radius: 15px;
   max-width: 400px;
   width: 100%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {

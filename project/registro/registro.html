@@ -11,10 +11,7 @@
     <div class="logo">SGE</div>
     <nav>
       <a href="#">+ Inicio</a>
-      <a href="#">+ Acerca de</a>
-      <a href="#">+ Contacto</a>
       <a href="#">+ Cerrar Sesión</a>
-      <a href="#">+ Panel Administrativo</a>
     </nav>
   </header>
 
@@ -22,28 +19,28 @@
     <div class="form-container">
       <h1>Registrar Empleado</h1>
       <form>
-        <label>Nombre:</label>
-        <input type="text" />
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
 
-        <label>Apellido:</label>
-        <input type="text" />
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required />
 
         <div class="flex">
           <div class="input-group">
-            <label>RUT</label>
-            <input type="text" />
+            <label for="rut">RUT:</label>
+            <input type="text" id="rut" name="rut" required />
           </div>
           <div class="input-group">
-            <label>Cargo</label>
-            <input type="text" />
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required />
           </div>
         </div>
 
-        <label>Departamento:</label>
-        <input type="text" />
+        <label for="departamento">Departamento:</label>
+        <input type="text" id="departamento" name="departamento" required />
 
-        <label>Sueldo</label>
-        <input type="text" />
+        <label for="sueldo">Sueldo:</label>
+        <input type="text" id="sueldo" name="sueldo" required />
 
         <button type="submit">+ Registrar Empleado</button>
         <a class="volver" href="#">+ Volver al Inicio</a>

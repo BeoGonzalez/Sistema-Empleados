@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gestión Empleados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #015b67;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #003840;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .container h1 {
+      color: white;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: block;
+      width: 250px;
+      margin: 20px auto;
+      padding: 15px;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+      background-color: #003840;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">SGE</div>
+    <nav>
+      <a href="#">+ Inicio</a>
+      <a href="#">+ Acerca de</a>
+      <a href="#">+ Contacto</a>
+      <a href="#">+ Cerrar Sesión</a>
+      <a href="#">+ Panel Administrativo</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Sistema de Gestión Empleados</h1>
+
+    <button class="btn">Registrar Empleados</button>
+    <button class="btn">Ver empleados</button>
+    <button class="btn">Actualizar Empleado</button>
+    <button class="btn">Eliminar Empleado</button>
+  </div>
+
+  <footer>
+    © 2024 Sistema de Gestión Empleados | Todos los derechos reservados
+  </footer>
+
+</body>
+</html>

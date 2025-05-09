@@ -105,3 +105,11 @@ footer {
   width: 100%;
   bottom: 0;
 }
+
+#rut-num {
+  flex: 1;
+}
+
+#rut-dv {
+  text-align: center;
+}

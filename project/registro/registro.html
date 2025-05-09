@@ -27,8 +27,11 @@
 
         <div class="flex">
           <div class="input-group">
-            <label for="rut">RUT:</label>
-            <input type="text" id="rut" name="rut" required />
+            <label for="rut-num">RUT:</label>
+            <div class="flex">
+              <input type="text" id="rut-num" name="rut-num" placeholder="12345678" required />
+              <input type="text" id="rut-dv" name="rut-dv" placeholder="K" maxlength="1" required style="max-width: 40px;" />
+            </div>
           </div>
           <div class="input-group">
             <label for="cargo">Cargo:</label>

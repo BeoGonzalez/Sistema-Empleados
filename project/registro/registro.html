@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar Empleado</title>
+  <link rel="stylesheet" href="registro.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">SGE</div>
+    <nav>
+      <a href="#">+ Inicio</a>
+      <a href="#">+ Cerrar Sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h1>Registrar Empleado</h1>
+      <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required />
+
+        <div class="flex">
+          <div class="input-group">
+            <label for="rut-num">RUT:</label>
+            <div class="flex">
+              <input type="text" id="rut-num" name="rut-num" placeholder="12345678" required />
+              <input type="text" id="rut-dv" name="rut-dv" placeholder="K" maxlength="1" required style="max-width: 40px;" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required />
+          </div>
+        </div>
+
+        <label for="departamento">Departamento:</label>
+        <input type="text" id="departamento" name="departamento" required />
+
+        <label for="sueldo">Sueldo:</label>
+        <input type="text" id="sueldo" name="sueldo" required />
+
+        <button type="submit">+ Registrar Empleado</button>
+        <a class="volver" href="#">+ Volver al Inicio</a>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>@ 2024 Sistema de Gestión Empleados | Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>

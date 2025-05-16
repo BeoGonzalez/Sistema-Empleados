@@ -57,6 +57,7 @@
   }
   
   .button-container button {
+    display: inline-block;
     width: 250px;
     padding: 1rem;
     background-color: white;
@@ -67,10 +68,16 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
   }
   
-  .button-container button:hover {
-    background-color: #dddddd;
+  .button-container button:hover, button:active{
+    background-color:midnightblue;
+    color:azure
   }
   
   .footer {

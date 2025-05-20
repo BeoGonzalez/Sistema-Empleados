@@ -31,7 +31,6 @@
   </footer>
    <!-- INICIO NUEVO CÓDIGO -->
    <script>
-    // Usuarios por defecto
     const usuarios = {
       "a1": "b1",
       "a2": "b2"
@@ -41,14 +40,23 @@
       const usuario = document.getElementById('usuario').value;
       const contraseña = document.getElementById('contraseña').value;
 
+      console.log("Intentando login con:", usuario, contraseña); // DEBUG
+
       if (usuarios[usuario] && usuarios[usuario] === contraseña) {
+        console.log("Login exitoso, redirigiendo..."); // DEBUG
+        sessionStorage.setItem("logueado", "true");
         window.location.href = "../crud/crud.html";
       } else {
         alert("Usuario o contraseña incorrectos");
       }
     }
+
+    // Redirigir automáticamente si ya está logueado
+    if (sessionStorage.getItem("logueado") === "true") {
+      console.log("Ya logueado, redirigiendo..."); // DEBUG
+      window.location.href = "../crud/crud.html";
+    }
   </script>
-  <!-- FIN NUEVO CÓDIGO -->
 
 
 </body>

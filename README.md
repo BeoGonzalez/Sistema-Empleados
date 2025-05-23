@@ -22,12 +22,4 @@ Permite registrar, modificar y eliminar información mediante un usuario princip
 - 🗑️ Eliminación de registros
 - 🔐 Login para administradores
 
----
-
-## 🙎🏽🙎🏻‍♂️🙎🏼 Integrantes
-
-- 🙎🏼 Juan Toledo
-- 🙎🏻‍♂️ Benjamin González
-- 🙎🏽 Benjamin Montoya
-
 

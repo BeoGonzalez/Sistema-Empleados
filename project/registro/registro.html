@@ -10,8 +10,8 @@
   <header>
     <div class="logo">SGE</div>
     <nav>
-      <a href="#">+ Inicio</a>
-      <a href="#">+ Cerrar Sesión</a>
+      <a href="../crud/crud.html">+ Inicio</a>
+      <a href="#" onclick="cerrarSesion()">+ Cerrar Sesión</a>
     </nav>
   </header>
 
@@ -45,8 +45,11 @@
         <label for="sueldo">Sueldo:</label>
         <input type="text" id="sueldo" name="sueldo" required />
 
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required />
+
         <button type="submit">+ Registrar Empleado</button>
-        <a class="volver" href="#">+ Volver al Inicio</a>
+        <a class="volver" href="../crud/crud.html">+ Volver al Inicio</a>
       </form>
     </div>
   </main>
@@ -59,11 +62,9 @@
   <script>
     window.onload = () => {
       const supabaseUrl = 'https://bsrrdsudwfrctzmidlxd.supabase.co';
-      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJzcnJkc3Vkd2ZyY3R6bWlkbHhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYyMTA2NzcsImV4cCI6MjA2MTc4NjY3N30.EpZFTaSGHvkACdI9cqQNpKu2mSLAuTGDWEpEuvzUVMQ';
-
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'; // tu clave real
       const { createClient } = supabase;
       const supabaseClient = createClient(supabaseUrl, supabaseKey);
-
       const form = document.querySelector("form");
 
       form.addEventListener("submit", async (e) => {
@@ -76,23 +77,37 @@
         const cargo = document.getElementById("cargo").value;
         const departamento = document.getElementById("departamento").value;
         const sueldo = parseFloat(document.getElementById("sueldo").value);
+        const archivo = document.getElementById("foto").files[0];
 
-        const { data, error } = await supabaseClient
-          .from("empleados_activos")
-          .insert([{ nombre, apellido, rut: rutNum, dv: rutDv, cargo, departamento, sueldo }]);
-
-        console.log("Respuesta:", { data, error });
-
-        if (error) {
-          console.error("❌ ERROR Supabase:", error);
-          alert("❌ Ocurrió un error. Revisa la consola (F12).");
-        } else {
-          alert("✅ Empleado registrado con éxito");
-          form.reset();
+        if (!archivo) {
+          alert("Debes seleccionar una foto.");
+          return;
         }
+
+        const reader = new FileReader();
+        reader.onloadend = async function () {
+          const base64Foto = reader.result;
+          const { data, error } = await supabaseClient
+            .from("empleados_activos")
+            .insert([{ nombre, apellido, rut: rutNum, dv: rutDv, cargo, departamento, sueldo, foto: base64Foto }]);
+
+          if (error) {
+            console.error("❌ ERROR Supabase:", error);
+            alert("❌ Ocurrió un error. Revisa la consola (F12).");
+          } else {
+            alert("✅ Empleado registrado con éxito");
+            form.reset();
+          }
+        };
+
+        reader.readAsDataURL(archivo);
       });
     };
-  </script>
 
+    function cerrarSesion() {
+      sessionStorage.removeItem("logueado");
+      window.location.href = "../login/login.html";
+    }
+  </script>
 </body>
 </html>

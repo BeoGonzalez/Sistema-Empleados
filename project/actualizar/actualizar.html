@@ -1,3 +1,8 @@
+Carpeta: actualizar/
+
+1. actualizar.html
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,50 +21,225 @@
   </header>
 
   <main>
-    <div class="form-container">
-      <h1>Actualizar Empleado</h1>
-      <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required />
-
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required />
-
-        <div class="flex">
-          <div class="input-group">
-            <label for="rut-num">RUT:</label>
-            <div class="flex">
-              <input type="text" id="rut-num" name="rut-num" placeholder="12345678" required />
-              <input type="text" id="rut-dv" name="rut-dv" placeholder="K" maxlength="1" required style="max-width: 40px;" />
-            </div>
-          </div>
-          <div class="input-group">
-            <label for="cargo">Cargo:</label>
-            <input type="text" id="cargo" name="cargo" required />
-          </div>
-        </div>
-
-        <label for="departamento">Departamento:</label>
-        <input type="text" id="departamento" name="departamento" required />
-
-        <label for="sueldo">Sueldo:</label>
-        <input type="text" id="sueldo" name="sueldo" required />
-
-        <button type="submit">+ Actualizar Empleado</button>
-        <a class="volver" href="#">+ Volver al Inicio</a>
-      </form>
-    </div>
+    <h1 class="titulo">Seleccionar Empleado</h1>
+    <div class="grid-container" id="contenedor-empleados"></div>
   </main>
-
-  <script>
-    function cerrarSesion() {
-      sessionStorage.removeItem("logueado");
-      window.location.href = "../login/login.html";
-    }
-  </script>
 
   <footer>
     <p>@ 2024 Sistema de Gestión Empleados | Todos los derechos reservados</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const supabase = supabase.createClient('https://bsrrdsudwfrctzmidlxd.supabase.co', 'TU_CLAVE_PUBLICA');
+
+    async function cargarEmpleados() {
+      const { data, error } = await supabase.from('empleados_activos').select('*');
+      const contenedor = document.getElementById('contenedor-empleados');
+      contenedor.innerHTML = '';
+
+      data.forEach(emp => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${emp.foto}" alt="${emp.nombre}" />
+          <div class="nombre">${emp.nombre} ${emp.apellido}</div>
+        `;
+        card.onclick = () => {
+          localStorage.setItem('empleadoSeleccionado', JSON.stringify(emp));
+          window.location.href = 'editar.html';
+        };
+        contenedor.appendChild(card);
+      });
+    }
+
+    function cerrarSesion() {
+      sessionStorage.removeItem("logueado");
+      window.location.href = "../login/login.html";
+    }
+
+    window.onload = cargarEmpleados;
+  </script>
 </body>
 </html>
+```
+
+2. editar.html
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Empleado</title>
+  <link rel="stylesheet" href="actualizar.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">SGE</div>
+    <nav>
+      <a href="actualizar.html">+ Volver</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h1>Actualizar Empleado</h1>
+      <form id="formulario">
+        <input type="hidden" id="rut" />
+
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required />
+
+        <label>Apellido:</label>
+        <input type="text" id="apellido" required />
+
+        <label>Cargo:</label>
+        <input type="text" id="cargo" required />
+
+        <label>Departamento:</label>
+        <input type="text" id="departamento" required />
+
+        <label>Sueldo:</label>
+        <input type="number" id="sueldo" required />
+
+        <button type="submit">+ Actualizar Empleado</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>@ 2024 Sistema de Gestión Empleados | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const supabase = supabase.createClient('https://bsrrdsudwfrctzmidlxd.supabase.co', 'TU_CLAVE_PUBLICA');
+    const emp = JSON.parse(localStorage.getItem('empleadoSeleccionado'));
+    if (!emp) window.location.href = 'actualizar.html';
+
+    document.getElementById('rut').value = emp.rut;
+    document.getElementById('nombre').value = emp.nombre;
+    document.getElementById('apellido').value = emp.apellido;
+    document.getElementById('cargo').value = emp.cargo;
+    document.getElementById('departamento').value = emp.departamento;
+    document.getElementById('sueldo').value = emp.sueldo;
+
+    document.getElementById('formulario').addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const { error } = await supabase.from('empleados_activos').update({
+        nombre: document.getElementById('nombre').value,
+        apellido: document.getElementById('apellido').value,
+        cargo: document.getElementById('cargo').value,
+        departamento: document.getElementById('departamento').value,
+        sueldo: parseFloat(document.getElementById('sueldo').value),
+      }).eq('rut', emp.rut);
+
+      if (error) return alert('Error al actualizar');
+      alert('Empleado actualizado con éxito');
+      window.location.href = 'actualizar.html';
+    });
+  </script>
+</body>
+</html>
+```
+
+3. actualizar.css
+
+```css
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #006B80;
+  color: #fff;
+}
+
+header {
+  background-color: #004f5c;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.titulo {
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.card {
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nombre {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.form-container {
+  background-color: #fff;
+  color: #000;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+input, button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background-color: #004f5c;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #004f5c;
+  color: #ccc;
+}
+```
+
+Reemplaza `'TU_CLAVE_PUBLICA'` por tu clave real de Supabase. ¿Quieres que te lo prepare en un `.zip` también?

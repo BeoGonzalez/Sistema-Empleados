@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Eliminar Empleado</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #006680;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004d66;
+      padding: 10px 20px;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 32px;
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 40px;
+      justify-items: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      color: black;
+      width: 120px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      border: 4px solid transparent;
+    }
+
+    .card.selected {
+      border: 4px solid #00ccff;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .name {
+      background-color: #1a237e;
+      color: white;
+      margin-top: 5px;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .eliminar-btn {
+      display: block;
+      margin: 0 auto;
+      padding: 15px 40px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #004d66;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">SGE</div>
+    <nav>
+      <a href="#">+ Inicio</a>
+      <a href="#">+ Acerca de</a>
+      <a href="#">+ Contacto</a>
+      <a href="#">+ Cerrar Sesión</a>
+      <a href="#">+ Panel Administrativo</a>
+    </nav>
+  </header>
+
+  <h1>Eliminar empleado</h1>
+
+  <div class="grid">
+    <!-- 8 tarjetas -->
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/236/236831.png" alt="avatar"><div class="name">Jose Silva</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/236/236832.png" alt="avatar"><div class="name">Jose Silva</div></div>
+    <div class="card selected"><img src="https://cdn-icons-png.flaticon.com/512/236/236831.png" alt="avatar"><div class="name">Jose Silva</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/236/236832.png" alt="avatar"><div class="name">Jose Silva</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/236/236831.png" alt="avatar"><div class="name">Jose Silva</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/236/236832.png" alt="avatar"><div class="name">Jose Silva</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/236/236831.png" alt="avatar"><div class="name">Jose Silva</div></div>
+    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/236/236832.png" alt="avatar"><div class="name">Jose Silva</div></div>
+  </div>
+
+  <button class="eliminar-btn">ELIMINAR</button>
+
+  <footer>
+    @ 2024 Sistema de Gestión Empleados | Todos los derechos reservados
+  </footer>
+
+</body>
+</html>

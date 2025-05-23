@@ -29,7 +29,7 @@
           <div class="input-group">
             <label for="rut-num">RUT:</label>
             <div class="flex">
-              <input type="text" id="rut-num" name="rut-num" placeholder="12345678" required />
+              <input type="number" id="rut-num" name="rut-num" placeholder="12345678" required />
               <input type="text" id="rut-dv" name="rut-dv" placeholder="K" maxlength="1" required style="max-width: 40px;" />
             </div>
           </div>
@@ -54,5 +54,45 @@
   <footer>
     <p>@ 2024 Sistema de Gestión Empleados | Todos los derechos reservados</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    window.onload = () => {
+      const supabaseUrl = 'https://bsrrdsudwfrctzmidlxd.supabase.co';
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJzcnJkc3Vkd2ZyY3R6bWlkbHhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYyMTA2NzcsImV4cCI6MjA2MTc4NjY3N30.EpZFTaSGHvkACdI9cqQNpKu2mSLAuTGDWEpEuvzUVMQ';
+
+      const { createClient } = supabase;
+      const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const nombre = document.getElementById("nombre").value;
+        const apellido = document.getElementById("apellido").value;
+        const rutNum = parseInt(document.getElementById("rut-num").value);
+        const rutDv = document.getElementById("rut-dv").value.toUpperCase();
+        const cargo = document.getElementById("cargo").value;
+        const departamento = document.getElementById("departamento").value;
+        const sueldo = parseFloat(document.getElementById("sueldo").value);
+
+        const { data, error } = await supabaseClient
+          .from("empleados_activos")
+          .insert([{ nombre, apellido, rut: rutNum, dv: rutDv, cargo, departamento, sueldo }]);
+
+        console.log("Respuesta:", { data, error });
+
+        if (error) {
+          console.error("❌ ERROR Supabase:", error);
+          alert("❌ Ocurrió un error. Revisa la consola (F12).");
+        } else {
+          alert("✅ Empleado registrado con éxito");
+          form.reset();
+        }
+      });
+    };
+  </script>
+
 </body>
 </html>

@@ -103,11 +103,8 @@
   <header>
     <div class="logo">SGE</div>
     <nav>
-      <a href="#">+ Inicio</a>
-      <a href="#">+ Acerca de</a>
-      <a href="#">+ Contacto</a>
-      <a href="#">+ Cerrar Sesión</a>
-      <a href="#">+ Panel Administrativo</a>
+      <a href="../crud/crud.html">+ Inicio</a>
+      <a href="#" onclick="cerrarSesion()">+ Cerrar Sesión</a>
     </nav>
   </header>
 
@@ -126,6 +123,13 @@
   </div>
 
   <button class="eliminar-btn">ELIMINAR</button>
+
+  <script>
+    function cerrarSesion() {
+      sessionStorage.removeItem("logueado");
+      window.location.href = "../login/login.html";
+    }
+  </script>
 
   <footer>
     @ 2024 Sistema de Gestión Empleados | Todos los derechos reservados

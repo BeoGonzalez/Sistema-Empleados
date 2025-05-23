@@ -1,0 +1,23 @@
+{
+  "name": "sistema-empleados",
+  "version": "1.0.0",
+  "description": "📂 Proyecto: Página web para la **gestión de empleados** de una empresa.  \r Permite registrar, modificar y eliminar información mediante un usuario principal que se encarga de estas tareas de empleados de forma sencilla y eficiente.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeoGonzalez/Sistema-Empleados.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BeoGonzalez/Sistema-Empleados/issues"
+  },
+  "homepage": "https://github.com/BeoGonzalez/Sistema-Empleados#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

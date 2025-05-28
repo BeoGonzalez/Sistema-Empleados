@@ -7,6 +7,17 @@ window.onload = async () => {
   const contenedor = document.getElementById('contenedor-empleados');
   const formContainer = document.getElementById('formulario-actualizar');
   const volverBtn = document.getElementById('volver-lista');
+  const sueldoInput = document.getElementById('sueldo');
+
+  sueldoInput.addEventListener('input', (e) => {
+    let valor = e.target.value.replace(/\D/g, '');
+    if (valor === '') {
+      e.target.value = '';
+      return;
+    }
+    valor = parseInt(valor).toLocaleString('es-CL');
+    e.target.value = `$${valor}`;
+  });
 
   try {
     const { data, error } = await supabaseClient
@@ -45,7 +56,7 @@ window.onload = async () => {
     document.getElementById('rut-dv').value = emp.dv;
     document.getElementById('cargo').value = emp.cargo;
     document.getElementById('departamento').value = emp.departamento;
-    document.getElementById('sueldo').value = emp.sueldo;
+    document.getElementById('sueldo').value = `$${parseInt(emp.sueldo).toLocaleString('es-CL')}`;
 
     const form = document.getElementById('actualizar-form');
     form.onsubmit = async (e) => {
@@ -55,7 +66,10 @@ window.onload = async () => {
       const apellido = document.getElementById('apellido').value;
       const cargo = document.getElementById('cargo').value;
       const departamento = document.getElementById('departamento').value;
-      const sueldo = parseFloat(document.getElementById('sueldo').value);
+
+      const sueldoRaw = document.getElementById('sueldo').value.replace(/\D/g, '');
+      const sueldo = parseFloat(sueldoRaw);
+
       const archivo = document.getElementById('foto').files[0];
 
       let base64Foto = emp.foto;

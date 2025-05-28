@@ -22,22 +22,17 @@
     <h1>Sistema de Gestión Empleados</h1>
     <div class="button-container">
       <a href="../registro/registro.html"><button>Registrar Empleados</button></a>
-      <a href="../listado/listar.html"><button>Ver empleados</button></a>
+      <a href="../listado/listado.html"><button>Ver empleados</button></a>
       <a href="../actualizar/actualizar.html"><button>Actualizar Empleado</button></a>
       <a href="../eliminar/eliminar.html"><button><span><i class="fa-solid fa-trash icono-btn"></i></span>Eliminar Empleado</button></a>
     </div>
   </main>
-  
 
   <footer class="footer">
     @ 2024 Sistema de Gestión Empleados | Todos los derechos reservados
   </footer>
-  <script>
-    // Proteger acceso si no está logueado
-    if (sessionStorage.getItem("logueado") !== "true") {
-      window.location.href = "../login/login.html";
-    }
 
+  <script>
     function cerrarSesion() {
       sessionStorage.removeItem("logueado");
       window.location.href = "../login/login.html";

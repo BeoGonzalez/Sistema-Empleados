@@ -11,14 +11,18 @@
     <div class="logo">SGE</div>
     <nav>
       <a href="../crud/crud.html">+ Inicio</a>
+<<<<<<< HEAD
       <a href="../login/login.html">+ Cerrar Sesión</a>
+=======
+      <a href="#" onclick="cerrarSesion()">+ Cerrar Sesión</a>
+>>>>>>> main
     </nav>
   </header>
 
   <main>
-    <div class="form-container">
+    <div class="form-container" style="display: none;" id="formulario-actualizar">
       <h1>Actualizar Empleado</h1>
-      <form>
+      <form id="actualizar-form">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required />
 
@@ -29,8 +33,8 @@
           <div class="input-group">
             <label for="rut-num">RUT:</label>
             <div class="flex">
-              <input type="text" id="rut-num" name="rut-num" placeholder="12345678" required />
-              <input type="text" id="rut-dv" name="rut-dv" placeholder="K" maxlength="1" required style="max-width: 40px;" />
+              <input type="number" id="rut-num" name="rut-num" placeholder="12345678" readonly />
+              <input type="text" id="rut-dv" name="rut-dv" placeholder="K" maxlength="1" readonly style="max-width: 40px;" />
             </div>
           </div>
           <div class="input-group">
@@ -45,14 +49,30 @@
         <label for="sueldo">Sueldo:</label>
         <input type="text" id="sueldo" name="sueldo" required />
 
-        <button type="submit">+ Registrar Empleado</button>
-        <a class="volver" href="#">+ Volver al Inicio</a>
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" />
+
+        <button type="submit">+ Actualizar Empleado</button>
+        <a class="volver" href="#" id="volver-lista">+ Volver a la Lista</a>
       </form>
+    </div>
+
+    <div class="grid-container" id="contenedor-empleados">
+      <p style="color: white;">Cargando empleados...</p>
     </div>
   </main>
 
   <footer>
     <p>@ 2024 Sistema de Gestión Empleados | Todos los derechos reservados</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="actualizar.js"></script>
+  <script>
+    function cerrarSesion() {
+      sessionStorage.removeItem("logueado");
+      window.location.href = "../login/login.html";
+    }
+  </script>
 </body>
 </html>

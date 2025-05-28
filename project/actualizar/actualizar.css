@@ -1,49 +1,125 @@
-/* actualizar.css */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #006B80;
-  color: #fff;
+  background-color: #065f73;
+  color: #000;
 }
 
 header {
-  background-color: #004f5c;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 30px;
+  background-color: #025763;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header .logo {
+.logo {
   font-size: 24px;
   font-weight: bold;
 }
 
-header nav a {
-  margin-left: 15px;
-  color: #fff;
+nav a {
+  margin-left: 20px;
+  color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 16px;
 }
 
 main {
-  padding: 30px 20px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-main h1 {
-  font-size: 32px;
-  margin-bottom: 30px;
-  text-decoration: underline;
+.form-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.flex {
+  display: flex;
+  gap: 10px;
+}
+
+.input-group {
+  flex: 1;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #035b68;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.volver {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #2a2db2;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #065f73;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+#rut-num {
+  flex: 1;
+}
+
+#rut-dv {
+  text-align: center;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
   max-width: 900px;
   margin: 0 auto;
-  gap: 20px;
-  justify-items: center;
 }
 
 .card {
@@ -56,6 +132,7 @@ main h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .card img {
@@ -75,26 +152,4 @@ main h1 {
   width: 100%;
   text-align: center;
   font-size: 14px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #004f5c;
-  color: #ccc;
-  font-size: 14px;
-}
-
-/* Loader animation */
-#loader {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 20px;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; }
-  100% { opacity: 1; }
 }

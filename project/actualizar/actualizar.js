@@ -5,23 +5,13 @@ window.onload = async () => {
   const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
   const contenedor = document.getElementById('contenedor-empleados');
-  const loader = document.getElementById('loader');
-
-  if (!contenedor) {
-    console.error("⚠️ No se encontró el contenedor con id 'contenedor-empleados'");
-    return;
-  }
-
-  loader.style.display = 'block'; // mostrar loader al inicio
+  const formContainer = document.getElementById('formulario-actualizar');
+  const volverBtn = document.getElementById('volver-lista');
 
   try {
     const { data, error } = await supabaseClient
       .from('empleados_activos')
       .select('*');
-
-    loader.style.display = 'none'; // ocultar loader al terminar
-
-    contenedor.innerHTML = '';
 
     if (error) {
       contenedor.innerHTML = '<p style="color:red;">Error al cargar empleados.</p>';
@@ -29,11 +19,7 @@ window.onload = async () => {
       return;
     }
 
-    if (!data || data.length === 0) {
-      contenedor.innerHTML = '<p>No hay empleados registrados.</p>';
-      return;
-    }
-
+    contenedor.innerHTML = '';
     data.forEach(emp => {
       const tarjeta = document.createElement('div');
       tarjeta.className = 'card';
@@ -41,11 +27,65 @@ window.onload = async () => {
         <img src="${emp.foto}" alt="Foto de ${emp.nombre}" />
         <div class="nombre">${emp.nombre} ${emp.apellido}</div>
       `;
+      tarjeta.addEventListener('click', () => mostrarFormulario(emp));
       contenedor.appendChild(tarjeta);
     });
   } catch (err) {
-    loader.style.display = 'none'; // ocultar loader en error también
     console.error('❌ Error general:', err);
     contenedor.innerHTML = '<p style="color:red;">Error inesperado al cargar empleados.</p>';
   }
+
+  function mostrarFormulario(emp) {
+    contenedor.style.display = 'none';
+    formContainer.style.display = 'block';
+
+    document.getElementById('nombre').value = emp.nombre;
+    document.getElementById('apellido').value = emp.apellido;
+    document.getElementById('rut-num').value = emp.rut;
+    document.getElementById('rut-dv').value = emp.dv;
+    document.getElementById('cargo').value = emp.cargo;
+    document.getElementById('departamento').value = emp.departamento;
+    document.getElementById('sueldo').value = emp.sueldo;
+
+    const form = document.getElementById('actualizar-form');
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const apellido = document.getElementById('apellido').value;
+      const cargo = document.getElementById('cargo').value;
+      const departamento = document.getElementById('departamento').value;
+      const sueldo = parseFloat(document.getElementById('sueldo').value);
+      const archivo = document.getElementById('foto').files[0];
+
+      let base64Foto = emp.foto;
+      if (archivo) {
+        const reader = new FileReader();
+        base64Foto = await new Promise((resolve, reject) => {
+          reader.onloadend = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(archivo);
+        });
+      }
+
+      const { error: updateError } = await supabaseClient
+        .from('empleados_activos')
+        .update({ nombre, apellido, cargo, departamento, sueldo, foto: base64Foto })
+        .eq('rut', emp.rut);
+
+      if (updateError) {
+        console.error('❌ Error al actualizar:', updateError);
+        alert('❌ Ocurrió un error al actualizar.');
+      } else {
+        alert('✅ Empleado actualizado con éxito.');
+        window.location.reload();
+      }
+    };
+  }
+
+  volverBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    formContainer.style.display = 'none';
+    contenedor.style.display = 'grid';
+  });
 };

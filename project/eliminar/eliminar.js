@@ -6,30 +6,53 @@ window.onload = async () => {
   
     const contenedor = document.getElementById('contenedor-empleados');
   
-    try {
-      const { data, error } = await supabaseClient
+    async function cargarEmpleados() {
+      try {
+        const { data, error } = await supabaseClient
+          .from('empleados_activos')
+          .select('*');
+  
+        if (error) {
+          contenedor.innerHTML = '<p style="color:red;">Error al cargar empleados.</p>';
+          console.error(error);
+          return;
+        }
+  
+        contenedor.innerHTML = '';
+        data.forEach(emp => {
+          const tarjeta = document.createElement('div');
+          tarjeta.className = 'card';
+          tarjeta.innerHTML = `
+            <img src="${emp.foto}" alt="Foto de ${emp.nombre}" />
+            <div class="nombre">${emp.nombre} ${emp.apellido}</div>
+          `;
+          tarjeta.addEventListener('click', () => eliminarEmpleado(emp));
+          contenedor.appendChild(tarjeta);
+        });
+      } catch (err) {
+        console.error('❌ Error general:', err);
+        contenedor.innerHTML = '<p style="color:red;">Error inesperado al cargar empleados.</p>';
+      }
+    }
+  
+    async function eliminarEmpleado(emp) {
+      const confirmar = confirm(`¿Estás seguro que quieres eliminar a ${emp.nombre} ${emp.apellido}?`);
+      if (!confirmar) return;
+  
+      const { error } = await supabaseClient
         .from('empleados_activos')
-        .select('*');
+        .delete()
+        .eq('rut', emp.rut);
   
       if (error) {
-        contenedor.innerHTML = '<p style="color:red;">Error al cargar empleados.</p>';
+        alert('❌ Error al eliminar empleado.');
         console.error(error);
-        return;
+      } else {
+        alert(`✅ Empleado ${emp.nombre} ${emp.apellido} eliminado correctamente.`);
+        cargarEmpleados();  // recarga la lista después de borrar
       }
-  
-      contenedor.innerHTML = '';
-      data.forEach(emp => {
-        const tarjeta = document.createElement('div');
-        tarjeta.className = 'card';
-        tarjeta.innerHTML = `
-          <img src="${emp.foto}" alt="Foto de ${emp.nombre}" />
-          <div class="nombre">${emp.nombre} ${emp.apellido}</div>
-        `;
-        contenedor.appendChild(tarjeta);
-      });
-    } catch (err) {
-      console.error('❌ Error general:', err);
-      contenedor.innerHTML = '<p style="color:red;">Error inesperado al cargar empleados.</p>';
     }
+  
+    cargarEmpleados();
   };
   

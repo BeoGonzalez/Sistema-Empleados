@@ -2,21 +2,22 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Actualizar Empleado</title>
-  <link rel="stylesheet" href="actualizar.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista Empleados - Actualizar</title>
+  <link rel="stylesheet" href="actualizar.css"/>
 </head>
 <body>
   <header>
     <div class="logo">SGE</div>
     <nav>
       <a href="../crud/crud.html">+ Inicio</a>
-      <a href="#" onclick="cerrarSesion()">+ Cerrar Sesión</a>
+      <a href="../login/login.html" onclick="cerrarSesion()">+ Cerrar Sesión</a>
     </nav>
   </header>
 
   <main>
-    <h1 class="titulo">Seleccionar Empleado</h1>
+    <h1 class="titulo">Lista Empleados</h1>
+    <div id="loader">Cargando empleados...</div>
     <div class="grid-container" id="contenedor-empleados"></div>
   </main>
 
@@ -25,35 +26,11 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="actualizar.js"></script>
   <script>
-    const supabase = supabase.createClient('https://bsrrdsudwfrctzmidlxd.supabase.co', 'TU_CLAVE_PUBLICA');
-
-    async function cargarEmpleados() {
-      const { data, error } = await supabase.from('empleados_activos').select('*');
-      const contenedor = document.getElementById('contenedor-empleados');
-      contenedor.innerHTML = '';
-
-      data.forEach(emp => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img src="${emp.foto}" alt="${emp.nombre}" />
-          <div class="nombre">${emp.nombre} ${emp.apellido}</div>
-        `;
-        card.onclick = () => {
-          localStorage.setItem('empleadoSeleccionado', JSON.stringify(emp));
-          window.location.href = 'editar.html';
-        };
-        contenedor.appendChild(card);
-      });
-    }
-
     function cerrarSesion() {
       sessionStorage.removeItem("logueado");
-      window.location.href = "../login/login.html";
     }
-
-    window.onload = cargarEmpleados;
   </script>
 </body>
 </html>

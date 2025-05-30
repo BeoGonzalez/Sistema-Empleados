@@ -75,10 +75,10 @@
     text-decoration: none;
   }
   
-  .button-container button:hover, button:active{
-    background-color:midnightblue;
-    color:azure
-  }
+.hover:hover {
+  background-color: #1e3a8a;
+  color: #eff6ff;
+}
   
   .footer {
     background-color: #027487;

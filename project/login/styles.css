@@ -1,101 +1,130 @@
-.menu {
-  background-color: white;
-  color: black;
-  text-align: center;
-  text-align: top;
-  height: 100px;
-  font: bold;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200px;
-  font-style: normal;
-  padding-top: 50px;
-  margin-top: 100px;
-  margin-left: 200px;
-  margin-right: 200px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #005b6b;
-  margin: 0;
-  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: url('fondologin.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #000; /* Fallback */
+  color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* Ocultar header */
 header {
-  background-color: #005b6b;
-  color: white;
-  padding: 20px;
-  font-size: 20px;
+  display: none;
 }
 
+/* Contenedor principal */
 .container {
-  flex: 1;
+  padding: 60px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
+/* Caja de login con fondo translúcido */
 .login-box {
-  background-color: white;
+  margin: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
   padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
-h2 {
+/* Imagen dentro del login-box (opcional) */
+.login-box img {
+  width: 100%;
+  border-radius: 8px;
   margin-bottom: 20px;
-  font-size: 28px;
 }
 
-input[type="email"],
+/* Título */
+h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Campos de entrada */
 input[type="text"],
-input[type="password"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  background-color: #2A2A2A;
+  border: 1px solid #888888;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input::placeholder {
+  color: #CCCCCC;
+}
+
+input:focus {
+  border-color: #00BFFF;
+  outline: none;
+}
+
+/* Botón claro */
 button {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  box-sizing: border-box;
-  display: block;
-}
-
-button {
-  background-color: #005b6b;
-  color: white;
+  padding: 14px;
+  background-color: white;
+  color: black;
   font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #004655;
+  background-color: #ddd;
 }
 
-.register-link {
-  margin-top: 15px;
+/* Mensaje de error (opcional) */
+.error-message {
+  color: #FF4C4C;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-.register-link a {
+/* Enlaces o texto destacado */
+a,
+.highlight {
+  color: #00BFFF;
   text-decoration: none;
-  font-size: 14px;
-  color: #005b6b;
 }
 
+/* Footer flotante, sin fondo */
 footer {
-  background-color: #005b6b;
+  background: none;
+  box-shadow: none;
+  padding: 0;
   color: white;
-  text-align: center;
-  padding: 15px;
   font-size: 14px;
+  text-align: center;
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  pointer-events: none;
 }

@@ -8,19 +8,19 @@ body {
   font-family: 'Inter', sans-serif;
   background: url('fondologin.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-color: #000; /* Fallback */
+  background-color: #000; 
   color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Ocultar header */
+
 header {
   display: none;
 }
 
-/* Contenedor principal */
+
 .container {
   padding: 60px 20px;
   display: flex;
@@ -29,7 +29,7 @@ header {
   flex: 1;
 }
 
-/* Caja de login con fondo translúcido */
+
 .login-box {
   margin: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
@@ -44,14 +44,14 @@ header {
   text-align: center;
 }
 
-/* Imagen dentro del login-box (opcional) */
+
 .login-box img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 20px;
 }
 
-/* Título */
+
 h2 {
   margin-bottom: 30px;
   font-size: 24px;
@@ -60,7 +60,7 @@ h2 {
   text-align: center;
 }
 
-/* Campos de entrada */
+
 input[type="text"],
 input[type="password"] {
   width: 100%;
@@ -83,7 +83,7 @@ input:focus {
   outline: none;
 }
 
-/* Botón claro */
+
 button {
   width: 100%;
   padding: 14px;
@@ -101,21 +101,21 @@ button:hover {
   background-color: #ddd;
 }
 
-/* Mensaje de error (opcional) */
+
 .error-message {
   color: #FF4C4C;
   margin-top: 10px;
   font-size: 14px;
 }
 
-/* Enlaces o texto destacado */
+
 a,
 .highlight {
   color: #00BFFF;
   text-decoration: none;
 }
 
-/* Footer flotante, sin fondo */
+
 footer {
   background: none;
   box-shadow: none;

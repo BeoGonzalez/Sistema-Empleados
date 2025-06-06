@@ -43,7 +43,7 @@
         <input type="text" id="departamento" name="departamento" required />
 
         <label for="sueldo">Sueldo:</label>
-        <input type="text" id="sueldo" name="sueldo" required />
+        <input type="text" id="sueldo" name="sueldo" required placeholder="$0" />
 
         <label for="foto">Foto:</label>
         <input type="file" id="foto" name="foto" accept="image/*" required />
@@ -57,6 +57,29 @@
   <footer>
     <p>@ 2024 Sistema de Gestión Empleados | Todos los derechos reservados</p>
   </footer>
+
+  
+  <script>
+    const sueldoInput = document.getElementById("sueldo");
+
+    sueldoInput.addEventListener("input", function (e) {
+      let input = e.target.value;
+
+   
+      input = input.replace(/\D/g, "");
+
+      
+      if (input) {
+        input = parseInt(input).toLocaleString("es-CL", {
+          style: "currency",
+          currency: "CLP",
+          minimumFractionDigits: 0,
+        });
+      }
+
+      e.target.value = input;
+    });
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script>
@@ -76,7 +99,11 @@
         const rutDv = document.getElementById("rut-dv").value.toUpperCase();
         const cargo = document.getElementById("cargo").value;
         const departamento = document.getElementById("departamento").value;
-        const sueldo = parseFloat(document.getElementById("sueldo").value);
+
+     
+        const sueldoRaw = document.getElementById("sueldo").value.replace(/\D/g, "");
+        const sueldo = parseFloat(sueldoRaw);
+
         const archivo = document.getElementById("foto").files[0];
 
         if (!archivo) {
@@ -89,7 +116,16 @@
           const base64Foto = reader.result;
           const { data, error } = await supabaseClient
             .from("empleados_activos")
-            .insert([{ nombre, apellido, rut: rutNum, dv: rutDv, cargo, departamento, sueldo, foto: base64Foto }]);
+            .insert([{
+              nombre,
+              apellido,
+              rut: rutNum,
+              dv: rutDv,
+              cargo,
+              departamento,
+              sueldo,
+              foto: base64Foto
+            }]);
 
           if (error) {
             console.error("❌ ERROR Supabase:", error);

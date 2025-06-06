@@ -49,7 +49,7 @@ window.onload = async () => {
         console.error(error);
       } else {
         alert(`✅ Empleado ${emp.nombre} ${emp.apellido} eliminado correctamente.`);
-        cargarEmpleados();  // recarga la lista después de borrar
+        cargarEmpleados();  
       }
     }
   

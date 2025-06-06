@@ -130,4 +130,18 @@ a {
   pointer-events: none;
 }
 
+.button-container .registrar:hover {
+  background-color:limegreen;
+}
 
+.button-container .listar:hover {
+  background-color:royalblue;
+}
+
+.button-container .actualizar:hover {
+  background-color:gold;
+}
+
+.button-container .eliminar:hover {
+  background-color:crimson;
+}

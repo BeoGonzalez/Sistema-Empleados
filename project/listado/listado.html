@@ -22,6 +22,13 @@
 
   <main>
     <h1 class="titulo">Lista Empleados</h1>
+    
+    <!-- Indicador de carga -->
+    <div class="loading-container" id="loading-container">
+      <div class="spinner"></div>
+      <p class="loading-text">Cargando empleados...</p>
+    </div>
+    
     <div class="grid-container" id="contenedor-empleados"></div>
   </main>
 
@@ -38,11 +45,19 @@
 
     async function cargarEmpleados() {
       const contenedor = document.getElementById('contenedor-empleados');
+      const loadingContainer = document.getElementById('loading-container');
+      
+      // Mostrar indicador de carga
+      loadingContainer.style.display = 'flex';
+      contenedor.style.display = 'none';
 
       const { data, error } = await supabaseClient
         .from('empleados_activos')
         .select('*');
 
+      // Ocultar indicador de carga
+      loadingContainer.style.display = 'none';
+      contenedor.style.display = 'grid';
       contenedor.innerHTML = '';
 
       if (error) {

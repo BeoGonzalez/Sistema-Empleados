@@ -2,36 +2,38 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eliminar Empleado</title>
-  <link rel="stylesheet" href="eliminar.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="eliminar.css"/>
 </head>
 <body>
+  <div class="fondo-blur"></div>
+
   <header>
     <div class="logo">SGE</div>
     <nav>
       <a href="../crud/crud.html">+ Inicio</a>
-      <a href="#" onclick="cerrarSesion()">+ Cerrar Sesión</a>
+      <a href="../login/login.html" onclick="cerrarSesion()">+ Cerrar Sesión</a>
     </nav>
   </header>
 
   <main>
-    <div class="grid-container" id="contenedor-empleados">
-      <p style="color: white;">Cargando empleados...</p>
+    <h1 class="titulo">Eliminar Empleado</h1>
+
+    <div class="loading-container" id="loading-container">
+      <div class="spinner"></div>
+      <p class="loading-text">Cargando empleados...</p>
     </div>
+
+    <div class="grid-container" id="contenedor-empleados"></div>
   </main>
 
   <footer>
-    <p>@ 2024 Sistema de Gestión Empleados | Todos los derechos reservados</p>
+    © 2024 Sistema de Gestión Empleados. Todos los derechos reservados.
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="eliminar.js"></script>
-  <script>
-    function cerrarSesion() {
-      sessionStorage.removeItem("logueado");
-      window.location.href = "../login/login.html";
-    }
-  </script>
 </body>
 </html>

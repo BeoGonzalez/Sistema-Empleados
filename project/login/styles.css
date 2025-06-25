@@ -6,20 +6,29 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: url('fondologin.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-color: #000; 
+  background-color: #000;
   color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+  z-index: 0;
 }
 
+/* capa de fondo desenfocada */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('fondologin.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(2px);
+  z-index: -1;
+}
 
 header {
   display: none;
 }
-
 
 .container {
   padding: 60px 20px;
@@ -28,7 +37,6 @@ header {
   align-items: center;
   flex: 1;
 }
-
 
 .login-box {
   margin: 20px;
@@ -44,13 +52,11 @@ header {
   text-align: center;
 }
 
-
 .login-box img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 20px;
 }
-
 
 h2 {
   margin-bottom: 30px;
@@ -59,7 +65,6 @@ h2 {
   color: #ffffff;
   text-align: center;
 }
-
 
 input[type="text"],
 input[type="password"] {
@@ -83,7 +88,6 @@ input:focus {
   outline: none;
 }
 
-
 button {
   width: 100%;
   padding: 14px;
@@ -101,20 +105,17 @@ button:hover {
   background-color: #ddd;
 }
 
-
 .error-message {
   color: #FF4C4C;
   margin-top: 10px;
   font-size: 14px;
 }
 
-
 a,
 .highlight {
   color: #00BFFF;
   text-decoration: none;
 }
-
 
 footer {
   background: none;

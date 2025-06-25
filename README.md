@@ -33,43 +33,107 @@ Permite registrar, modificar y eliminar información mediante un usuario princip
 
 ---
 
-## Retroalimentación
+## 📘 Bitácora de Desarrollo – Sistema de Gestión de Empleados (SGE)
 
-Semana 1:
-En la primera semana creamos los equipos en donde el lider del proyecto sería Benjamín Gonzalez, definimos el proyecto que seria un sistema
-de gestión de empleados, cada uno seleccionó 7 cursos de github de la página web "Microsoft(Learn)" y creamos un repositorio llamado "Sistema-Empleados" para subir todos nuestros avances semestrales.
+Este documento presenta un resumen semanal del desarrollo del proyecto **SGE** (Sistema de Gestión de Empleados), desde su planeación inicial hasta su ejecución técnica y despliegue.
 
-Semana 2:
-En la segunda semana empezamos con nuestro prototipo visual en figma en donde empezamos a aplicar nuestras ideas de diseño completando nuestras estructuras de las interfaces de usuario.
+---
 
-Semana 3:
-En esta semana definimos lo que sería nuestras interfaces de usuario para nuestros usuarios definitivamente para así poder empezar a capacitarnos y crear uestra página web.
+### 🟢 Semana 1 – Organización del Proyecto
+- Se formaron los equipos de trabajo.
+- Se nombró a **Benjamín González** como líder del proyecto.
+- Se definió el objetivo general: desarrollar un **Sistema de Gestión de Empleados**.
+- Cada integrante seleccionó **7 cursos** de la plataforma [Microsoft Learn](https://learn.microsoft.com/) para capacitarse.
+- Se creó el repositorio GitHub: `Sistema-Empleados`.
 
-Semana 4:
-Cada uno de los integrantes se capacitó en html, css, javascript y postgresql para llegar al objetivo de crear una página de web funcional para todos los usuarios que interactuen con nuestra página y presentamos el proyecto a toda la clase incluido con el profesor para nustra primera nota.
+---
 
-Semana 5:
-Después de la presentación oral de nuestro proyecto comenzamos a desarrollar nuestra página web "SGE" empezando por desarrollar el codigo html para la estructura base de nuestra página web, el css para el diseño de nuestras interfaces de usuario y empezamos a crear la base de datos para nuestros empleados.
+### 🎨 Semana 2 – Prototipado Visual
+- Se comenzó con el diseño de un prototipo visual en **Figma**.
+- Se plantearon las primeras ideas de interfaz y experiencia de usuario.
+- Se definieron las estructuras base de las **interfaces de usuario**.
 
-Semana 6:
-En esta semana se empezó a utilizar una carta-Gantt para la administración de tareas para cada integrante del equipo para un avance más distribuido y eficiente definiendo también el tiempo de cada tarea por cumplir mientras la página web seguia en desarrollo.
+---
 
-Semana 7:
-En esta semana ya tuvimos que avanzar nuestra página web con la estructura html terminada, el css casi terminado, la base de datos ya creada y las funcionalidades principales ya definidas con javascript porque se acercaba la fecha de la presentación del proyecto.
+### 🧩 Semana 3 – Definición de Interfaces
+- Se consolidó el diseño de las interfaces principales del sistema.
+- Se estableció una visión clara del producto a desarrollar.
+- Se dio inicio a la **capacitación técnica** para implementar el sistema web.
 
-Semana 8:
-En esta semana terminamos de conectar el frontend con nuestro backend en javascript y postgresql para prepararnos para nuestra presentacion y tener un modelo funcional.
+---
 
-Semana 9:
-En la semana 9 definimos como ibamos a presentar nuestro proyecto ya que tenemos el front-end listo, y el back-end listo incluyendo la base de datos.
+### 📚 Semana 4 – Capacitación Técnica
+- Todos los miembros se capacitaron en tecnologías clave:
+  - **HTML**
+  - **CSS**
+  - **JavaScript**
+  - **PostgreSQL**
+- Se realizó una **presentación inicial del proyecto** ante la clase y el profesor para evaluación parcial.
 
-Semana 10:
-Practicamente solo necesitabamos mejorar el disño de nuestra página web de las pantallas de crud, registrar, actualizar y eliminar asi que estuvimos enfocados en el css de la pagina y estudiando las opciones de integrar alguna api como una api de clima o calendario.
+---
 
-Semana 11:
-En esta semana cambiamos la estructura del proyecto desde la rama gonzalez para poder desplegar nuestra página web a futuro con vercel y configurar el login desde nuestra base de datos postgresql con supabase para eliminar el login local desde javascript.
+### 🧱 Semana 5 – Inicio del Desarrollo
+- Comenzó el desarrollo del sitio web:
+  - Estructura base con **HTML**.
+  - Primeros estilos visuales con **CSS**.
+  - Creación inicial de la **base de datos de empleados**.
 
-Semana 12:
-Implementamos el autopush para automatizar nuestros commits sin necesidad de hacer push de forma manual.
+---
+
+### 📊 Semana 6 – Gestión de Tareas
+- Se implementó una **carta Gantt** para asignar tareas por miembro.
+- Se definieron tiempos estimados por actividad.
+- Se continuó con el desarrollo del sistema web.
+
+---
+
+### 🚧 Semana 7 – Avance Técnico
+- Estado del proyecto:
+  - Estructura **HTML** finalizada ✅
+  - Diseño **CSS** casi completo 🎨
+  - **Base de datos** operativa 💾
+  - Funciones principales programadas con **JavaScript** ⚙️
+
+---
+
+### 🔗 Semana 8 – Integración del Sistema
+- Se logró la integración entre el **frontend y backend**:
+  - Conexión de formularios y lógica de negocio con **PostgreSQL** usando **JavaScript**.
+- El sistema se encuentra en estado **funcional y listo para demostración**.
+
+---
+
+### 🎤 Semana 9 – Preparación de Presentación
+- Se definió la estructura de la **presentación final**.
+- El proyecto está listo:
+  - Frontend ✅
+  - Backend ✅
+  - Base de datos ✅
+
+---
+
+### 🎨 Semana 10 – Mejora Visual + Funcionalidades Extra
+- Se optimizó el diseño de las pantallas de **CRUD**:
+  - Registro, Actualización, Eliminación.
+- Se exploró la integración de APIs externas (clima, calendario).
+
+---
+
+### 🛠 Semana 11 – Reestructuración y Despliegue
+- Reestructuración del proyecto desde la rama **Gonzalez**.
+- Preparación para el **despliegue en Vercel**.
+- Implementación de **Supabase** para reemplazar el login local por un login conectado a la base de datos PostgreSQL.
+
+---
+
+### ⚙️ Semana 12 – Automatización de Deploy
+- se tiene que implementar el **autopush** para automatizar los commits y evitar el uso manual de `git push`.
+
+---
+
+> ✅ **Estado actual del proyecto:** En fase final, optimizado y preparado para producción.  
+> ☁️ **Despliegue previsto:** Vercel + Supabase  
+> 💡 **Tecnologías clave:** HTML, CSS, JavaScript, PostgreSQL, Supabase, GitHub
+
 
 

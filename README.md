@@ -131,7 +131,7 @@ Este documento presenta un resumen semanal del desarrollo del proyecto **SGE** (
 
 ---
 
-> ✅ **Estado actual del proyecto:** En fase final, optimizado y preparado para producción.  
+> ✅ **Estado actual del proyecto:** En desarrollo.  
 > ☁️ **Despliegue previsto:** Vercel + Supabase  
 > 💡 **Tecnologías clave:** HTML, CSS, JavaScript, PostgreSQL, Supabase, GitHub
 

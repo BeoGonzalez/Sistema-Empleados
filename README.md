@@ -63,4 +63,13 @@ En esta semana terminamos de conectar el frontend con nuestro backend en javascr
 Semana 9:
 En la semana 9 definimos como ibamos a presentar nuestro proyecto ya que tenemos el front-end listo, y el back-end listo incluyendo la base de datos.
 
+Semana 10:
+Practicamente solo necesitabamos mejorar el disño de nuestra página web de las pantallas de crud, registrar, actualizar y eliminar asi que estuvimos enfocados en el css de la pagina y estudiando las opciones de integrar alguna api como una api de clima o calendario.
+
+Semana 11:
+En esta semana cambiamos la estructura del proyecto desde la rama gonzalez para poder desplegar nuestra página web a futuro con vercel y configurar el login desde nuestra base de datos postgresql con supabase para eliminar el login local desde javascript.
+
+Semana 12:
+Implementamos el autopush para automatizar nuestros commits sin necesidad de hacer push de forma manual.
+
 

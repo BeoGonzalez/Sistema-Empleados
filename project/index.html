@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - SGE</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/Sistema-Empleados/project/login/styles.css" />
 </head>
 <body>
 
@@ -40,14 +40,14 @@
 
       if (usuarios[usuario] && usuarios[usuario] === contraseña) {
         sessionStorage.setItem("logueado", "true");
-        window.location.href = "../crud/crud.html";
+        window.location.href = "/Sistema-Empleados/project/crud/crud.html";
       } else {
         alert("Usuario o contraseña incorrectos");
       }
     }
 
     if (sessionStorage.getItem("logueado") === "true") {
-      window.location.href = "../crud/crud.html";
+      window.location.href = "/Sistema-Empleados/project/crud/crud.html";
     }
   </script>
 

@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Actualizar Empleado</title>
-  <link rel="stylesheet" href="actualizar.css" />
+  <link rel="stylesheet" href="/Sistema-Empleados/project/actualizar/actualizar.css" />
 </head>
 <body>
   <header>
     <div class="logo">SGE</div>
     <nav>
-      <a href="../crud/crud.html">+ Inicio</a>
+      <a href="/Sistema-Empleados/project/crud/crud.html">+ Inicio</a>
       <a href="#" onclick="cerrarSesion()">+ Cerrar Sesión</a>
     </nav>
   </header>
@@ -63,11 +63,11 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="actualizar.js"></script>
+  <script src="/Sistema-Empleados/project/actualizar/actualizar.js"></script>
   <script>
     function cerrarSesion() {
       sessionStorage.removeItem("logueado");
-      window.location.href = "../login/login.html";
+      window.location.href = "/Sistema-Empleados/project/index.html";
     }
   </script>
 </body>

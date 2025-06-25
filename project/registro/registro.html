@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registrar Empleado</title>
-  <link rel="stylesheet" href="registro.css" />
+  <link rel="stylesheet" href="/Sistema-Empleados/project/registro/registro.css" />
 </head>
 <body>
   <header>
     <div class="logo">SGE</div>
     <nav>
-      <a href="../crud/crud.html">+ Inicio</a>
+      <a href="/Sistema-Empleados/project/crud/crud.html">+ Inicio</a>
       <a href="#" onclick="cerrarSesion()">+ Cerrar Sesión</a>
     </nav>
   </header>
@@ -49,7 +49,7 @@
         <input type="file" id="foto" name="foto" accept="image/*" required />
 
         <button type="submit">+ Registrar Empleado</button>
-        <a class="volver" href="../crud/crud.html">+ Volver al Inicio</a>
+        <a class="volver" href="/Sistema-Empleados/project/crud/crud.html">+ Volver al Inicio</a>
       </form>
     </div>
   </main>
@@ -142,7 +142,7 @@
 
     function cerrarSesion() {
       sessionStorage.removeItem("logueado");
-      window.location.href = "../login/login.html";
+      window.location.href = "/Sistema-Empleados/project/index.html";
     }
   </script>
 </body>

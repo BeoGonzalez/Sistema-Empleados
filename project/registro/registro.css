@@ -1,3 +1,6 @@
+/* ===================================
+   Reset global y fuente
+   =================================== */
 * {
   margin: 0;
   padding: 0;
@@ -5,17 +8,32 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* ===================================
+   Fondo difuminado con blur de 2px
+   =================================== */
 body {
-  background: url('fondoregistro.JPG') no-repeat center center fixed;
-  background-size: cover;
   background-color: #000;
   color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+  z-index: 0;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('fondoregistro.JPG') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(2px);
+  z-index: -1;
+}
 
+/* ===================================
+   Header
+   =================================== */
 header {
   display: flex;
   justify-content: space-between;
@@ -25,6 +43,8 @@ header {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
@@ -39,15 +59,24 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
+  transition: color 0.3s ease;
 }
 
+nav a:hover {
+  color: #00BFFF;
+}
 
+/* ===================================
+   Main y formulario
+   =================================== */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .form-container {
@@ -62,6 +91,7 @@ main {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Título */
 h1 {
   font-size: 24px;
   font-weight: 600;
@@ -69,7 +99,7 @@ h1 {
   color: #ffffff;
 }
 
-
+/* Etiquetas e inputs */
 form label {
   display: block;
   margin-top: 15px;
@@ -86,8 +116,10 @@ form input {
   border: none;
   background-color: rgba(255, 255, 255, 0.9);
   color: #000;
+  font-size: 14px;
 }
 
+/* Flex para rut */
 .flex {
   display: flex;
   gap: 10px;
@@ -105,7 +137,7 @@ form input {
   text-align: center;
 }
 
-
+/* Botones */
 button {
   width: 100%;
   margin-top: 25px;
@@ -117,14 +149,14 @@ button {
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: limegreen;
 }
 
-
+/* Enlace volver */
 .volver {
   display: block;
   text-align: center;
@@ -132,9 +164,16 @@ button:hover {
   color: #1e90ff;
   font-weight: bold;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+.volver:hover {
+  color: #63b8ff;
+}
 
+/* ===================================
+   Footer
+   =================================== */
 footer {
   background: none;
   box-shadow: none;
@@ -146,4 +185,5 @@ footer {
   bottom: 10px;
   width: 100%;
   pointer-events: none;
+  z-index: 1;
 }

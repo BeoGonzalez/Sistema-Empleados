@@ -1,61 +1,125 @@
 
-body {
+body, html {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #006B80;
-  color: #fff;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
 
+
+.fondo-blur {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('fondolistado.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+
+header, main, footer {
+  position: relative;
+  z-index: 1;
+  padding: 15px 20px;
+}
+
+
 header {
-  background-color: #004f5c;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 header .logo {
+  font-weight: 600;
   font-size: 24px;
-  font-weight: bold;
 }
 
 header nav a {
+  color: white;
+  font-weight: 600;
   margin-left: 15px;
-  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-main {
-  padding: 30px 20px;
-  text-align: center;
+header nav a:hover {
+  color: #00BFFF;
 }
 
-main h1 {
+
+main .titulo {
   font-size: 32px;
-  margin-bottom: 30px;
+  margin: 30px 0;
+  text-align: center;
   text-decoration: underline;
 }
+
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #00BFFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   gap: 20px;
   justify-items: center;
 }
 
+
 .card {
-  background-color: #fff;
-  color: #000;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 12px;
   padding: 15px;
   width: 180px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card img {
@@ -67,20 +131,23 @@ main h1 {
 }
 
 .card .nombre {
-  background-color: #2c318c;
-  color: white;
-  font-weight: bold;
+  background-color:#0a0a0a;
   padding: 6px 0;
   border-radius: 8px;
   width: 100%;
   text-align: center;
+  font-weight: 700;
   font-size: 14px;
 }
 
+
 footer {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  padding: 20px;
-  background-color: #004f5c;
+  padding: 30px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ccc;
   font-size: 14px;
+  margin-top: auto;
 }

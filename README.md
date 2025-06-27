@@ -127,7 +127,7 @@ Este documento presenta un resumen semanal del desarrollo del proyecto **SGE** (
 ---
 
 ### ⚙️ Semana 12 – Automatización de Deploy
-- se tiene que implementar el **autopush** para automatizar los commits y evitar el uso manual de `git push`.
+- se está planeado integrar **autopush** para automatizar los commits y evitar el uso manual de `git push`.
 
 ---
 

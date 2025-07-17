@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('/project/login/fondologin.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.panel {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.panel h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.button-container button {
+  width: 100%;
+  padding: 14px;
+  background-color: black;
+  color: cornsilk;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: flex-start;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}

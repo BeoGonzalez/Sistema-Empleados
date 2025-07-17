@@ -132,7 +132,7 @@ Este documento presenta un resumen semanal del desarrollo del proyecto **SGE** (
 ---
 
 > ✅ **Estado actual del proyecto:** Terminado.
-> ☁️ **Despliegue previsto:** Netlify + Supabase  
+> ☁️ **Despliegue previsto:** Github Pages + Supabase  
 > 💡 **Tecnologías clave:** HTML, CSS, JavaScript, PostgreSQL, Supabase, GitHub
 
 

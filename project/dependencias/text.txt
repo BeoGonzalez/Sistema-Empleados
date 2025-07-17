@@ -1,1 +1,0 @@
-en esta carpeta van las dependencias del desppliegue en netlify
